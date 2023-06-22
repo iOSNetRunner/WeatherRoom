@@ -14,6 +14,12 @@
 		603AA1302A3FD339008AF828 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 603AA12E2A3FD339008AF828 /* LaunchScreen.storyboard */; };
 		603AA13D2A3FD3A3008AF828 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA13C2A3FD3A3008AF828 /* Forecast.swift */; };
 		603AA13F2A3FD3E2008AF828 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA13E2A3FD3E2008AF828 /* MainViewController.swift */; };
+		603AA1422A4470C0008AF828 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA1412A4470C0008AF828 /* NetworkManager.swift */; };
+		603AA1452A44908D008AF828 /* SpringAnimation in Frameworks */ = {isa = PBXBuildFile; productRef = 603AA1442A44908D008AF828 /* SpringAnimation */; };
+		603AA1482A449192008AF828 /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA1472A449192008AF828 /* Extension + UIView.swift */; };
+		603AA14A2A44A013008AF828 /* CitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA1492A44A013008AF828 /* CitiesListViewController.swift */; };
+		603AA14C2A44A9CD008AF828 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA14B2A44A9CD008AF828 /* ForecastViewController.swift */; };
+		603AA14E2A44D978008AF828 /* Extension + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA14D2A44D978008AF828 /* Extension + UITableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,11 @@
 		603AA1312A3FD339008AF828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		603AA13C2A3FD3A3008AF828 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		603AA13E2A3FD3E2008AF828 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		603AA1412A4470C0008AF828 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		603AA1472A449192008AF828 /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
+		603AA1492A44A013008AF828 /* CitiesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesListViewController.swift; sourceTree = "<group>"; };
+		603AA14B2A44A9CD008AF828 /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
+		603AA14D2A44D978008AF828 /* Extension + UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UITableView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				603AA1452A44908D008AF828 /* SpringAnimation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +70,8 @@
 		603AA1222A3FD337008AF828 /* WeatherRoom */ = {
 			isa = PBXGroup;
 			children = (
+				603AA1462A44917F008AF828 /* Extensions */,
+				603AA1402A4470A8008AF828 /* Services */,
 				603AA13B2A3FD37F008AF828 /* Storyboards */,
 				603AA13A2A3FD375008AF828 /* Resources */,
 				603AA1392A3FD369008AF828 /* ViewControllers */,
@@ -89,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				603AA13E2A3FD3E2008AF828 /* MainViewController.swift */,
+				603AA1492A44A013008AF828 /* CitiesListViewController.swift */,
+				603AA14B2A44A9CD008AF828 /* ForecastViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -110,6 +126,23 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		603AA1402A4470A8008AF828 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				603AA1412A4470C0008AF828 /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		603AA1462A44917F008AF828 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				603AA1472A449192008AF828 /* Extension + UIView.swift */,
+				603AA14D2A44D978008AF828 /* Extension + UITableView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,6 +159,9 @@
 			dependencies = (
 			);
 			name = WeatherRoom;
+			packageProductDependencies = (
+				603AA1442A44908D008AF828 /* SpringAnimation */,
+			);
 			productName = WeatherRoom;
 			productReference = 603AA1202A3FD337008AF828 /* WeatherRoom.app */;
 			productType = "com.apple.product-type.application";
@@ -154,6 +190,9 @@
 				Base,
 			);
 			mainGroup = 603AA1172A3FD337008AF828;
+			packageReferences = (
+				603AA1432A44908D008AF828 /* XCRemoteSwiftPackageReference "SpringAnimation" */,
+			);
 			productRefGroup = 603AA1212A3FD337008AF828 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -183,6 +222,11 @@
 			files = (
 				603AA1242A3FD337008AF828 /* AppDelegate.swift in Sources */,
 				603AA13D2A3FD3A3008AF828 /* Forecast.swift in Sources */,
+				603AA14E2A44D978008AF828 /* Extension + UITableView.swift in Sources */,
+				603AA14A2A44A013008AF828 /* CitiesListViewController.swift in Sources */,
+				603AA1482A449192008AF828 /* Extension + UIView.swift in Sources */,
+				603AA1422A4470C0008AF828 /* NetworkManager.swift in Sources */,
+				603AA14C2A44A9CD008AF828 /* ForecastViewController.swift in Sources */,
 				603AA1262A3FD337008AF828 /* SceneDelegate.swift in Sources */,
 				603AA13F2A3FD3E2008AF828 /* MainViewController.swift in Sources */,
 			);
@@ -408,6 +452,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		603AA1432A44908D008AF828 /* XCRemoteSwiftPackageReference "SpringAnimation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LexDeBash/SpringAnimation";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		603AA1442A44908D008AF828 /* SpringAnimation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 603AA1432A44908D008AF828 /* XCRemoteSwiftPackageReference "SpringAnimation" */;
+			productName = SpringAnimation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 603AA1182A3FD337008AF828 /* Project object */;
 }

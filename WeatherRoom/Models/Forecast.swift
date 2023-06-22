@@ -20,4 +20,3 @@ struct Temperature: Decodable {
 struct ForecastInfo: Decodable {
     let dataseries: [Forecast]
 }
-
