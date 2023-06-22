@@ -73,8 +73,6 @@ enum Link: CaseIterable {
     }
 }
 
-
-
 final class NetworkManager {
     static let shared = NetworkManager()
     
@@ -100,8 +98,6 @@ final class NetworkManager {
 //        }.resume()
 //    }
     
-    
-    
     func getURLfrom(_ location: Location) -> String {
         guard let lon = location.coordinates.first else { return "0"}
         guard let lat = location.coordinates.last else { return "0"}
@@ -109,4 +105,3 @@ final class NetworkManager {
         return "https://www.7timer.info/bin/civillight.php?lon=\(lon)&lat=\(lat)&ac=0&unit=metric&output=json"
         }
 }
-
