@@ -37,7 +37,7 @@
                                     <segue destination="THo-Xg-Lri" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="bGa-k8-uAv"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WEATHER ROOM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zl2-TR-Xh0" customClass="SpringLabel" customModule="SpringAnimation">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WEATHER ROOM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zl2-TR-Xh0" customClass="SpringLabel" customModule="SpringAnimation">
                                 <rect key="frame" x="56.333333333333343" y="405" width="280.66666666666663" height="42"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -49,6 +49,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
+                        <color key="tintColor" systemColor="systemCyanColor"/>
                         <constraints>
                             <constraint firstItem="FdJ-Bg-uOG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cn6-GV-PrO"/>
                             <constraint firstItem="Zl2-TR-Xh0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="YhA-IE-zgK"/>
@@ -77,13 +78,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="systemCyanColor"/>
+                        <color key="separatorColor" systemColor="systemCyanColor"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" id="eeG-jj-gxU">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cityCell" id="eeG-jj-gxU">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eeG-jj-gxU" id="yc5-f7-pEa">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -99,7 +102,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Cities List" id="VRk-3w-Msl">
                         <barButtonItem key="leftBarButtonItem" image="house.fill" catalog="system" id="waW-YW-FIi">
-                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <color key="tintColor" systemColor="systemCyanColor"/>
                             <connections>
                                 <segue destination="59I-i9-I0Y" kind="unwind" unwindAction="unwindToHomeScreen:" id="nbb-is-uq1"/>
                             </connections>
@@ -114,17 +117,18 @@
         <!--Week Forecast-->
         <scene sceneID="Nbz-FB-eyM">
             <objects>
-                <tableViewController id="ssQ-Nd-MqN" sceneMemberID="viewController">
+                <tableViewController id="ssQ-Nd-MqN" customClass="WeekForecastTableViewController" customModule="WeatherRoom" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Upr-XE-md6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="separatorColor" systemColor="systemCyanColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateCell" id="Bn1-K0-kxM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="dateCell" id="Bn1-K0-kxM">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bn1-K0-kxM" id="llR-GP-Vdc">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -143,7 +147,7 @@
             </objects>
             <point key="canvasLocation" x="2433" y="-27"/>
         </scene>
-        <!--Forecast View Controller-->
+        <!--Selected City-->
         <scene sceneID="tD0-Sa-wSq">
             <objects>
                 <viewController id="qwe-wa-ayH" customClass="ForecastViewController" customModule="WeatherRoom" customModuleProvider="target" sceneMemberID="viewController">
@@ -164,8 +168,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="G3q-Pd-dyt">
                                         <rect key="frame" x="0.0" y="0.0" width="232" height="105.33333333333333"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current weather:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34I-ED-dZF">
-                                                <rect key="frame" x="0.0" y="0.0" width="128" height="20.333333333333332"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34I-ED-dZF">
+                                                <rect key="frame" x="0.0" y="0.0" width="69" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -237,7 +241,7 @@
                             <constraint firstItem="uus-NS-5ev" firstAttribute="trailing" secondItem="DeC-gH-OlA" secondAttribute="trailing" constant="40" id="zfc-53-aGO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="sgq-Ev-Soj"/>
+                    <navigationItem key="navigationItem" title="Selected City" id="sgq-Ev-Soj"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Ngo-pY-t9h" id="wjQ-Qp-Ees"/>
                         <outlet property="currentWeatherLabel" destination="9d2-0v-OWM" id="a5X-zm-TFg"/>
@@ -249,7 +253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWz-JU-ZEY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3280" y="-27"/>
+            <point key="canvasLocation" x="3227" y="-27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xwA-Ha-yT9">
@@ -270,6 +274,7 @@
             <point key="canvasLocation" x="824" y="-27"/>
         </scene>
     </scenes>
+    <color key="tintColor" systemColor="systemCyanColor"/>
     <resources>
         <image name="cloud.sun.fill" catalog="system" width="128" height="96"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
@@ -278,9 +283,6 @@
         </systemColor>
         <systemColor name="systemCyanColor">
             <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

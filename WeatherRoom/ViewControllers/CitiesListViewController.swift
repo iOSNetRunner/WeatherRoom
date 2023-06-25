@@ -50,6 +50,7 @@ final class CitiesListViewController: UITableViewController {
     //MARK: - Private Properties
     private let cities = City.allCases
     private let links = Link.allCases
+    private let networkManager = NetworkManager.shared
     
     //MARK: - View Life Cycle Methods
     override func viewDidLoad() {
@@ -70,17 +71,16 @@ final class CitiesListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
         content.text = cities[indexPath.section].title
+        content.textProperties.font = UIFont.systemFont(ofSize: 20)
         cell.contentConfiguration = content
         return cell
     }
     
     //MARK: - Navigation
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        guard let forecastVC = segue.destination as? ForecastViewController else { return }
-        forecastVC.title = cities[indexPath.section].title
-        forecastVC.url = links[indexPath.section].url
+        guard let weekForecastVC = segue.destination as? WeekForecastTableViewController else { return }
+        weekForecastVC.url = links[indexPath.section].url
+        weekForecastVC.selectedCityTitle = cities[indexPath.section].title
     }
 }

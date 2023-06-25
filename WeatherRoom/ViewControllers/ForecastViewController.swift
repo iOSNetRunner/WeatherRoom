@@ -21,7 +21,7 @@ final class ForecastViewController: UIViewController {
     @IBOutlet var windSpeedLabel: UILabel!
     
     //MARK: - Public properties
-    var url: URL!
+    var forecast: Forecast!
     
     //MARK: - Private properties
     private let networkManager = NetworkManager.shared
@@ -32,27 +32,20 @@ final class ForecastViewController: UIViewController {
         view.setGradientBackground()
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
-        fetchCurrentForecast()
+        setCurrentForecast()
         setAnimation()
-    }
-    //MARK: - Networking
-    private func fetchCurrentForecast() {
-        networkManager.fetch(from: url) { result in
-            switch result {
-            case .success(let forecastInfo):
-                self.currentWeatherLabel.text = forecastInfo.dataseries.first?.weather
-                self.dayTemperatureLabel.text = "\(String( forecastInfo.dataseries.first?.temperature.max ?? 0)) ℃"
-                self.nightTemperatureLabel.text = "\(String(forecastInfo.dataseries.first?.temperature.min ?? 0)) ℃"
-                self.windSpeedLabel.text = "\(String(forecastInfo.dataseries.first?.windSpeed ?? 0)) m/s"
-                self.activityIndicator.stopAnimating()
-                self.setIconForCurrentWeather()
-            case .failure(let error):
-                print(error)
-            }
-        }
     }
     
     //MARK: - Private Methods
+    private func setCurrentForecast() {
+        currentWeatherLabel.text = forecast.weather
+        dayTemperatureLabel.text = "\(String( forecast.temperature.max)) ℃"
+        nightTemperatureLabel.text = "\(String(forecast.temperature.min)) ℃"
+        windSpeedLabel.text = "\(String(forecast.windSpeed)) m/s"
+        activityIndicator.stopAnimating()
+        setIconForCurrentWeather()
+    }
+    
     private func setIconForCurrentWeather() {
         switch currentWeatherLabel.text {
         case "rain", "lightrain", "oshower", "ishower":
