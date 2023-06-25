@@ -20,6 +20,7 @@
 		603AA14A2A44A013008AF828 /* CitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA1492A44A013008AF828 /* CitiesListViewController.swift */; };
 		603AA14C2A44A9CD008AF828 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA14B2A44A9CD008AF828 /* ForecastViewController.swift */; };
 		603AA14E2A44D978008AF828 /* Extension + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA14D2A44D978008AF828 /* Extension + UITableView.swift */; };
+		60E9AAAD2A484F5C00C8B75E /* WeekForecastTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E9AAAC2A484F5C00C8B75E /* WeekForecastTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		603AA1492A44A013008AF828 /* CitiesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesListViewController.swift; sourceTree = "<group>"; };
 		603AA14B2A44A9CD008AF828 /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
 		603AA14D2A44D978008AF828 /* Extension + UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UITableView.swift"; sourceTree = "<group>"; };
+		60E9AAAC2A484F5C00C8B75E /* WeekForecastTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekForecastTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				603AA13E2A3FD3E2008AF828 /* MainViewController.swift */,
 				603AA1492A44A013008AF828 /* CitiesListViewController.swift */,
 				603AA14B2A44A9CD008AF828 /* ForecastViewController.swift */,
+				60E9AAAC2A484F5C00C8B75E /* WeekForecastTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				603AA1422A4470C0008AF828 /* NetworkManager.swift in Sources */,
 				603AA14C2A44A9CD008AF828 /* ForecastViewController.swift in Sources */,
 				603AA1262A3FD337008AF828 /* SceneDelegate.swift in Sources */,
+				60E9AAAD2A484F5C00C8B75E /* WeekForecastTableViewController.swift in Sources */,
 				603AA13F2A3FD3E2008AF828 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

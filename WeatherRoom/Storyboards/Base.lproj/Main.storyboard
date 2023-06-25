@@ -88,7 +88,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <segue destination="qwe-wa-ayH" kind="show" identifier="showForecast" id="c5G-RB-x99"/>
+                                    <segue destination="ssQ-Nd-MqN" kind="show" id="ZKR-Js-nFX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -97,11 +97,51 @@
                             <outlet property="delegate" destination="FG9-Lw-B5R" id="fns-5N-Z2R"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Cities List" id="VRk-3w-Msl"/>
+                    <navigationItem key="navigationItem" title="Cities List" id="VRk-3w-Msl">
+                        <barButtonItem key="leftBarButtonItem" image="house.fill" catalog="system" id="waW-YW-FIi">
+                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <connections>
+                                <segue destination="59I-i9-I0Y" kind="unwind" unwindAction="unwindToHomeScreen:" id="nbb-is-uq1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TXd-yS-gAc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="59I-i9-I0Y" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1624" y="-27"/>
+        </scene>
+        <!--Week Forecast-->
+        <scene sceneID="Nbz-FB-eyM">
+            <objects>
+                <tableViewController id="ssQ-Nd-MqN" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Upr-XE-md6">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateCell" id="Bn1-K0-kxM">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bn1-K0-kxM" id="llR-GP-Vdc">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="qwe-wa-ayH" kind="show" id="7Wo-oY-WpH"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ssQ-Nd-MqN" id="itP-Sw-fcm"/>
+                            <outlet property="delegate" destination="ssQ-Nd-MqN" id="sXu-00-ggr"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Week Forecast" largeTitleDisplayMode="always" id="mwh-s6-MV0"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nwD-wd-MwA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2433" y="-27"/>
         </scene>
         <!--Forecast View Controller-->
         <scene sceneID="tD0-Sa-wSq">
@@ -182,17 +222,17 @@
                                 </subviews>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ngo-pY-t9h">
-                                <rect key="frame" x="305.66666666666669" y="497" width="37" height="37"/>
+                                <rect key="frame" x="296" y="498.33333333333326" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uus-NS-5ev"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
                         <constraints>
-                            <constraint firstItem="Ngo-pY-t9h" firstAttribute="centerX" secondItem="muI-nJ-YGS" secondAttribute="centerX" multiplier="1.65" id="ACX-cG-ECL"/>
+                            <constraint firstItem="Ngo-pY-t9h" firstAttribute="centerX" secondItem="muI-nJ-YGS" secondAttribute="centerX" multiplier="1.6" id="ACX-cG-ECL"/>
                             <constraint firstItem="DeC-gH-OlA" firstAttribute="leading" secondItem="uus-NS-5ev" secondAttribute="leading" constant="40" id="BeG-zu-mMQ"/>
                             <constraint firstItem="cq9-ma-2V1" firstAttribute="centerY" secondItem="muI-nJ-YGS" secondAttribute="centerY" multiplier="0.7" id="NKD-Lg-4FG"/>
+                            <constraint firstItem="Ngo-pY-t9h" firstAttribute="top" secondItem="cq9-ma-2V1" secondAttribute="bottom" constant="100" id="kJD-eL-DeI"/>
                             <constraint firstItem="DeC-gH-OlA" firstAttribute="top" secondItem="cq9-ma-2V1" secondAttribute="bottom" constant="70" id="kYK-P3-Qhd"/>
-                            <constraint firstItem="Ngo-pY-t9h" firstAttribute="centerY" secondItem="muI-nJ-YGS" secondAttribute="centerY" multiplier="1.21" id="nwT-SP-jR0"/>
                             <constraint firstItem="cq9-ma-2V1" firstAttribute="centerX" secondItem="muI-nJ-YGS" secondAttribute="centerX" id="wqV-PP-IaC"/>
                             <constraint firstItem="uus-NS-5ev" firstAttribute="trailing" secondItem="DeC-gH-OlA" secondAttribute="trailing" constant="40" id="zfc-53-aGO"/>
                         </constraints>
@@ -209,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWz-JU-ZEY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2356" y="-27"/>
+            <point key="canvasLocation" x="3280" y="-27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xwA-Ha-yT9">
@@ -232,8 +272,15 @@
     </scenes>
     <resources>
         <image name="cloud.sun.fill" catalog="system" width="128" height="96"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemCyanColor">
             <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

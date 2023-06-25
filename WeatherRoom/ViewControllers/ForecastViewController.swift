@@ -32,35 +32,24 @@ final class ForecastViewController: UIViewController {
         view.setGradientBackground()
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
-        fetchCurrentForecast(for: url)
+        fetchCurrentForecast()
         setAnimation()
     }
     //MARK: - Networking
-    private func fetchCurrentForecast(for location: URL) {
-        
-        URLSession.shared.dataTask(with: location) { data, _, error in
-            guard let data else {
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let forecastInfo = try decoder.decode(ForecastInfo.self, from: data)
-                
-                DispatchQueue.main.async {
-                    self.currentWeatherLabel.text = forecastInfo.dataseries.first?.weather
-                    self.dayTemperatureLabel.text = "\(String( forecastInfo.dataseries.first?.temperature.max ?? 0)) ℃"
-                    self.nightTemperatureLabel.text = "\(String(forecastInfo.dataseries.first?.temperature.min ?? 0)) ℃"
-                    self.windSpeedLabel.text = "\(String(forecastInfo.dataseries.first?.windSpeed ?? 0)) m/s"
-                    self.activityIndicator.stopAnimating()
-                    self.setIconForCurrentWeather()
-                }
-            } catch {
+    private func fetchCurrentForecast() {
+        networkManager.fetch(from: url) { result in
+            switch result {
+            case .success(let forecastInfo):
+                self.currentWeatherLabel.text = forecastInfo.dataseries.first?.weather
+                self.dayTemperatureLabel.text = "\(String( forecastInfo.dataseries.first?.temperature.max ?? 0)) ℃"
+                self.nightTemperatureLabel.text = "\(String(forecastInfo.dataseries.first?.temperature.min ?? 0)) ℃"
+                self.windSpeedLabel.text = "\(String(forecastInfo.dataseries.first?.windSpeed ?? 0)) m/s"
+                self.activityIndicator.stopAnimating()
+                self.setIconForCurrentWeather()
+            case .failure(let error):
                 print(error)
             }
-            
-        }.resume()
+        }
     }
     
     //MARK: - Private Methods

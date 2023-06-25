@@ -24,6 +24,15 @@ final class MainViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setAnimation()
+    }
+    
+    //MARK: Navigation
+    @IBAction func unwind(toHomeScreen segue: UIStoryboardSegue) {
+    }
+    
     //MARK: - Private Methods
     private func setAnimation() {
         logoImage.animation = "zoomIn"
