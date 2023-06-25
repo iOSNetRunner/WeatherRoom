@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 final class WeekForecastTableViewController: UITableViewController {
 
@@ -21,8 +22,11 @@ final class WeekForecastTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.setTableViewGradient()
+        tableView.rowHeight = 80
         title = "\(selectedCityTitle ?? "Week forecast")"
+        print(forecasts)
         fetchSelectedForecast()
+        print(forecasts)
     }
 
     // MARK: - Table view data source
@@ -32,10 +36,6 @@ final class WeekForecastTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         forecasts.count / forecasts.count
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        CGFloat(forecasts.count * 10)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -82,16 +82,64 @@ final class WeekForecastTableViewController: UITableViewController {
     }
     
     //MARK: - Networking
+//    private func fetchSelectedForecast() {
+//        networkManager.fetch(from: url) { result in
+//            switch result {
+//            case .success(let forecastInfo):
+//                self.forecasts = forecastInfo.dataseries
+//                self.tableView.reloadData()
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//    }
+    
     private func fetchSelectedForecast() {
-        networkManager.fetch(from: url) { result in
-            switch result {
-            case .success(let forecastInfo):
-                self.forecasts = forecastInfo.dataseries
-                self.tableView.reloadData()
-            case .failure(let error):
-                print(error)
+        AF.request(url)
+            .validate()
+            .responseJSON { [weak self] dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    guard let forecastsInfo = value as? [[String: Any]] else { return }
+                    for forecastInfo in forecastsInfo {
+//                      let forecast = ForecastInfo(
+//                        dataseries: forecastInfo["dataseries"] as? [Forecast] ?? []
+//                      )
+//                        print(forecast)
+                        
+                        
+                        
+                        
+//                        let forecast = Forecast(
+//                            date: forecastData["date"] as? Int ?? 0,
+//                            weather: forecastData["weather"] as? String ?? "",
+//                            temperature: forecastData["temperature"] as! Temperature,
+//                            windSpeed: forecastData["windSpeed"] as? Int ?? 0)
+
+//                        let temperatureValues = Temperature(
+//                            max: forecastData["max"] as? Int ?? 0,
+//                            min: forecastData["min"] as? Int ?? 0
+//                        )
+//
+//                        let forecastWithTemperature = Forecast(
+//                            date: forecastData["date"] as? Int ?? 0,
+//                            weather: forecastData["weather"] as? String ?? "",
+//                            temperature: temperatureValues["max", "min"] as! Temperature,
+//                            windSpeed: forecastData["windSpeed"] as? Int ?? 0)
+
+                        self?.forecasts.append(contentsOf: forecast.dataseries)
+                        
+                    }
+                    self?.tableView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+                
+                
+                
             }
-        }
+        
+        
     }
     
 }

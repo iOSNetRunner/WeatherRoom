@@ -20,6 +20,7 @@
 		603AA14A2A44A013008AF828 /* CitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA1492A44A013008AF828 /* CitiesListViewController.swift */; };
 		603AA14C2A44A9CD008AF828 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA14B2A44A9CD008AF828 /* ForecastViewController.swift */; };
 		603AA14E2A44D978008AF828 /* Extension + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA14D2A44D978008AF828 /* Extension + UITableView.swift */; };
+		6063082F2A4884A200C9731F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6063082E2A4884A200C9731F /* Alamofire */; };
 		60E9AAAD2A484F5C00C8B75E /* WeekForecastTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E9AAAC2A484F5C00C8B75E /* WeekForecastTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				603AA1452A44908D008AF828 /* SpringAnimation in Frameworks */,
+				6063082F2A4884A200C9731F /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +166,7 @@
 			name = WeatherRoom;
 			packageProductDependencies = (
 				603AA1442A44908D008AF828 /* SpringAnimation */,
+				6063082E2A4884A200C9731F /* Alamofire */,
 			);
 			productName = WeatherRoom;
 			productReference = 603AA1202A3FD337008AF828 /* WeatherRoom.app */;
@@ -195,6 +198,7 @@
 			mainGroup = 603AA1172A3FD337008AF828;
 			packageReferences = (
 				603AA1432A44908D008AF828 /* XCRemoteSwiftPackageReference "SpringAnimation" */,
+				6063082D2A4884A200C9731F /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 603AA1212A3FD337008AF828 /* Products */;
 			projectDirPath = "";
@@ -466,6 +470,14 @@
 				minimumVersion = 0.3.0;
 			};
 		};
+		6063082D2A4884A200C9731F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -473,6 +485,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 603AA1432A44908D008AF828 /* XCRemoteSwiftPackageReference "SpringAnimation" */;
 			productName = SpringAnimation;
+		};
+		6063082E2A4884A200C9731F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6063082D2A4884A200C9731F /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
