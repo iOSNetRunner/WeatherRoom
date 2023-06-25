@@ -50,9 +50,9 @@ final class ForecastViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     self.currentWeatherLabel.text = forecastInfo.dataseries.first?.weather
-                    self.dayTemperatureLabel.text = "\(String( forecastInfo.dataseries.first?.temp2m.max ?? 0)) ℃"
-                    self.nightTemperatureLabel.text = "\(String(forecastInfo.dataseries.first?.temp2m.min ?? 0)) ℃"
-                    self.windSpeedLabel.text = "\(String(forecastInfo.dataseries.first?.wind10m_max ?? 0)) m/s"
+                    self.dayTemperatureLabel.text = "\(String( forecastInfo.dataseries.first?.temperature.max ?? 0)) ℃"
+                    self.nightTemperatureLabel.text = "\(String(forecastInfo.dataseries.first?.temperature.min ?? 0)) ℃"
+                    self.windSpeedLabel.text = "\(String(forecastInfo.dataseries.first?.windSpeed ?? 0)) m/s"
                     self.activityIndicator.stopAnimating()
                     self.setIconForCurrentWeather()
                 }

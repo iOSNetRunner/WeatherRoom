@@ -182,7 +182,7 @@
                                 </subviews>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ngo-pY-t9h">
-                                <rect key="frame" x="305.66666666666669" y="501.33333333333326" width="37" height="37"/>
+                                <rect key="frame" x="305.66666666666669" y="497" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uus-NS-5ev"/>
@@ -192,7 +192,7 @@
                             <constraint firstItem="DeC-gH-OlA" firstAttribute="leading" secondItem="uus-NS-5ev" secondAttribute="leading" constant="40" id="BeG-zu-mMQ"/>
                             <constraint firstItem="cq9-ma-2V1" firstAttribute="centerY" secondItem="muI-nJ-YGS" secondAttribute="centerY" multiplier="0.7" id="NKD-Lg-4FG"/>
                             <constraint firstItem="DeC-gH-OlA" firstAttribute="top" secondItem="cq9-ma-2V1" secondAttribute="bottom" constant="70" id="kYK-P3-Qhd"/>
-                            <constraint firstItem="Ngo-pY-t9h" firstAttribute="centerY" secondItem="muI-nJ-YGS" secondAttribute="centerY" multiplier="1.22" id="nwT-SP-jR0"/>
+                            <constraint firstItem="Ngo-pY-t9h" firstAttribute="centerY" secondItem="muI-nJ-YGS" secondAttribute="centerY" multiplier="1.21" id="nwT-SP-jR0"/>
                             <constraint firstItem="cq9-ma-2V1" firstAttribute="centerX" secondItem="muI-nJ-YGS" secondAttribute="centerX" id="wqV-PP-IaC"/>
                             <constraint firstItem="uus-NS-5ev" firstAttribute="trailing" secondItem="DeC-gH-OlA" secondAttribute="trailing" constant="40" id="zfc-53-aGO"/>
                         </constraints>

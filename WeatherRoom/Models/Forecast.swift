@@ -8,8 +8,15 @@
 struct Forecast: Decodable {
     let date: Int
     let weather: String
-    let temp2m: Temperature
-    let wind10m_max: Int
+    let temperature: Temperature
+    let windSpeed: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case date = "date"
+        case weather = "weather"
+        case temperature = "temp2m"
+        case windSpeed = "wind10m_max"
+    }
 }
 
 struct Temperature: Decodable {

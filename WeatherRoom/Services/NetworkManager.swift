@@ -7,34 +7,6 @@
 
 import Foundation
 
-enum Location {
-    case SPB
-    case MSK
-    case BER
-    case NY
-    case LA
-    case MSR
-    case MIL
-    case HKW
-    case MNT
-    case NOR
-    
-    var coordinates: [String] {
-        switch self {
-        case .SPB: return ["30.324395", "59.929593"]
-        case .MSK: return ["37.618962", "55.755358"]
-        case .BER: return ["13.391243", "52.517347"]
-        case .NY: return ["-73.994429", "40.714315"]
-        case .LA: return ["-118.208229", "33.815092"]
-        case .MSR: return ["17.810020", "43.348254"]
-        case .MIL: return ["9.190022", "45.464248"]
-        case .HKW: return ["80.099866", "6.136289"]
-        case .MNT: return ["-73.576550", "45.479278"]
-        case .NOR: return ["88.210548", "69.343999"]
-        }
-    }
-}
-
 enum Link: CaseIterable {
     case saintPetersburgURL
     case moscowURL
@@ -50,27 +22,33 @@ enum Link: CaseIterable {
     var url: URL {
         switch self {
         case .saintPetersburgURL:
-            return URL(string: NetworkManager.shared.getURLfrom(Location.SPB))!
+            return URL(string: "https://www.7timer.info/bin/civillight.php?lon=30.324395&lat=59.929593&ac=0&unit=metric&output=json")!
         case .moscowURL:
-            return URL(string: NetworkManager.shared.getURLfrom(Location.MSK))!
+            return URL(string: "https://www.7timer.info/bin/civillight.php?lon=37.618962&lat=55.755358&ac=0&unit=metric&output=json")!
         case .berlinURL:
-            return URL(string: NetworkManager.shared.getURLfrom(Location.BER))!
+            return URL(string: "https://www.7timer.info/bin/civillight.php?lon=13.391243&lat=52.517347&ac=0&unit=metric&output=json")!
         case .losAngelesURL:
-            return URL(string: NetworkManager.shared.getURLfrom(Location.LA))!
+            return URL(string: "https://www.7timer.info/bin/civillight.php?lon=-73.994429&lat=40.714315&ac=0&unit=metric&output=json")!
         case .newYorkURL:
-            return URL(string: NetworkManager.shared.getURLfrom(Location.NY))!
+            return URL(string: "https://www.7timer.info/bin/civillight.php?lon=-118.208229&lat=33.815092&ac=0&unit=metric&output=json")!
         case .mostarURL:
-            return URL(string: NetworkManager.shared.getURLfrom(Location.MSR))!
+            return URL(string: "https://www.7timer.info/bin/civillight.php?lon=17.810020&lat=43.348254&ac=0&unit=metric&output=json")!
         case .milanURL:
-            return URL(string: NetworkManager.shared.getURLfrom(Location.MIL))!
+            return URL(string: "https://www.7timer.info/bin/civillight.php?lon=9.190022&lat=45.464248&ac=0&unit=metric&output=json")!
         case .hikkaduwaURL:
-            return URL(string: NetworkManager.shared.getURLfrom(Location.HKW))!
+            return URL(string: "https://www.7timer.info/bin/civillight.php?lon=80.099866&lat=6.136289&ac=0&unit=metric&output=json")!
         case .montrealURL:
-            return URL(string: NetworkManager.shared.getURLfrom(Location.MNT))!
+            return URL(string: "https://www.7timer.info/bin/civillight.php?lon=-73.576550&lat=45.479278&ac=0&unit=metric&output=json")!
         case .norilskURL:
-            return URL(string: NetworkManager.shared.getURLfrom(Location.NOR))!
+            return URL(string: "https://www.7timer.info/bin/civillight.php?lon=88.210548&lat=69.343999&ac=0&unit=metric&output=json")!
         }
     }
+}
+
+enum NetworkError: Error {
+    case invalidURL
+    case noData
+    case decodingError
 }
 
 final class NetworkManager {
@@ -78,30 +56,26 @@ final class NetworkManager {
     
     private init () {}
     
-//    func fetchForecast(for location: URL) {
-//
-//        URLSession.shared.dataTask(with: location) { data, _, error in
-//            guard let data else {
-//                print(error?.localizedDescription ?? "No error description")
-//                return
-//            }
-//
-//            do {
-//                let decoder = JSONDecoder()
-//                let forecastInfo = try decoder.decode(ForecastInfo.self, from: data)
-//
-//                print(forecastInfo)
-//            } catch {
-//                print(error)
-//            }
-//
-//        }.resume()
-//    }
+    func fetch(from url: URL, completion: @escaping(Result<ForecastInfo, NetworkError>) -> Void) {
+
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data else {
+                completion(.failure(.noData))
+                return
+            }
+
+            do {
+                let decoder = JSONDecoder()
+                let forecastInfo = try decoder.decode(ForecastInfo.self, from: data)
+                DispatchQueue.main.async {
+                    completion(.success(forecastInfo))
+                }
+            } catch {
+                completion(.failure(.decodingError))
+            }
+
+        }.resume()
+    }
     
-    func getURLfrom(_ location: Location) -> String {
-        guard let lon = location.coordinates.first else { return "0"}
-        guard let lat = location.coordinates.last else { return "0"}
-        
-        return "https://www.7timer.info/bin/civillight.php?lon=\(lon)&lat=\(lat)&ac=0&unit=metric&output=json"
-        }
+    
 }
