@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum Link: CaseIterable {
     case saintPetersburgURL
@@ -56,26 +57,18 @@ final class NetworkManager {
     
     private init () {}
     
-    func fetch(from url: URL, completion: @escaping(Result<ForecastInfo, NetworkError>) -> Void) {
-
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data else {
-                completion(.failure(.noData))
-                return
-            }
-
-            do {
-                let decoder = JSONDecoder()
-                let forecastInfo = try decoder.decode(ForecastInfo.self, from: data)
-                DispatchQueue.main.async {
-                    completion(.success(forecastInfo))
+    func fetchForecasts(from url: URL, completion: @escaping (Result<[Forecast], AFError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    let forecasts = Forecast.getForecasts(from: value)
+                    completion(.success(forecasts))
+                case .failure(let error):
+                    completion(.failure(error))
                 }
-            } catch {
-                completion(.failure(.decodingError))
             }
-
-        }.resume()
     }
-    
     
 }
